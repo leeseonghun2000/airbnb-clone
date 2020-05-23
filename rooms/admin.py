@@ -88,6 +88,10 @@ class RoomAdmin(admin.ModelAdmin):
         "house_rules",
     )
 
+    def save_model(self, request, obj, form, change):
+        print(obj, form, change)
+        super().save_model(request, obj, form, change)
+
     def count_amenities(self, obj):
         return obj.amenities.count()
 
